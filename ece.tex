@@ -23,10 +23,23 @@ $P=RI^2=VI$ \vspace{1cm}
   (0,0) to [R,v>=$$] (2,0);
 \end{circuitikz}
 \subsection{Current Division}
-% diagram
+\begin{circuitikz} % add symbols
+  \draw
+  (0,0) to [short] (4,0)
+  (4,0) to [R] (4,2)
+  (2,0) to [R] (2,2)
+  (4,2) to [short] (0,2);
+%  \hspace{1cm}
+\end{circuitikz}
 $I_k=I_s\left( \frac{\frac{1}{R_k}}{\sum\limits_i{\frac{1}{R_i}}} \right)$
 \subsection{Voltage Division}
-
+\begin{circuitikz} % add symbols
+  \draw
+  (0,0) to [short] (1,0)
+  (1,0) to [R] (1,2)
+  (1,2) to [R] (1,4)
+  (1,4) to [short] (0,4);
+\end{circuitikz}
 \subsection{Resistor Reduction}
 
 \subsection{Component Order}
