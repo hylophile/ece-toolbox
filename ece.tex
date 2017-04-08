@@ -1,12 +1,11 @@
-\documentclass[10pt,landscape]{cheatsheet}
-
+\documentclass[10pt,landscape]{article}
+\usepackage{circuitikz}
 \begin{document}
 \footnotesize
-\begin{multicols}{3}
+% \begin{multicols}{3}
 
 \begin{center}
-     \Large{\textbf{Intro to ECE Toolbox}} \\
-     x and y
+     \Large{\textbf{Intro to ECE Toolbox}} 
 \end{center}
 
 \section{Ohm's law and some basics}
@@ -14,40 +13,23 @@
 What's the voltage at $X$? What's the current through $Y$?
 What's the resistance of $Z$? How much power is used by $F$?
 \subsection{Ohm's law}
-\[ V=I \cdot R \]
+$V=I \cdot R$ \hspace{1cm}
+$I=\frac{V}{R}$ \hspace{1cm}
+$R=\frac{V}{I}$ \hspace{1cm}
+$P=RI^2=VI$ \vspace{1cm}
 
-\[I=\frac{V}{R}\]
+\begin{circuitikz}[american voltages] % how to show both the arrow and plus / minus?
+  \draw
+  (0,0) to [R,v>=$$] (2,0);
+\end{circuitikz}
+\subsection{Current Division}
+% diagram
+$I_k=I_s\left( \frac{\frac{1}{R_k}}{\sum\limits_i{\frac{1}{R_i}}} \right)$
+\subsection{Voltage Division}
 
-\[R=\frac{V}{I}\]
+\subsection{Resistor Reduction}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-% \label{subsec:label}
-
-
-% \label{subsec:label}
-
-
-
-
-
+\subsection{Component Order}
 
 
 
@@ -61,5 +43,5 @@ What's the resistance of $Z$? How much power is used by $F$?
 %     \mitem{Curabitur}{Consequat nisi at ligula hendrerit condimentum.}
 % \end{tabular}
 
-\end{multicols}
+% \end{multicols}
 \end{document}
