@@ -4,6 +4,10 @@
 \footnotesize
 % \begin{multicols}{3}
 
+\newcommand{\bcz}{\begin{circuitikz}}
+\newcommand{\ecz}{\end{circuitikz}}
+
+
 \begin{center}
      \Large{\textbf{Intro to ECE Toolbox}} 
 \end{center}
@@ -18,30 +22,43 @@ $I=\frac{V}{R}$ \hspace{1cm}
 $R=\frac{V}{I}$ \hspace{1cm}
 $P=RI^2=VI$ \vspace{1cm}
 
-\begin{circuitikz}[american voltages] % how to show both the arrow and plus / minus?
+\bcz[american voltages] % how to show both the arrow and plus / minus?
   \draw
   (0,0) to [R,v>=$$] (2,0);
-\end{circuitikz}
+\ecz
 \subsection{Current Division}
-\begin{circuitikz} % add symbols
+\bcz % add symbols
   \draw
   (0,0) to [short] (4,0)
   (4,0) to [R] (4,2)
   (2,0) to [R] (2,2)
   (4,2) to [short] (0,2);
 %  \hspace{1cm}
-\end{circuitikz}
+\ecz
 $I_k=I_s\left( \frac{\frac{1}{R_k}}{\sum\limits_i{\frac{1}{R_i}}} \right)$
 \subsection{Voltage Division}
-\begin{circuitikz} % add symbols
+\bcz[american voltages] % add symbols
   \draw
-  (0,0) to [short] (1,0)
+  (0,0) to [short, o-] (1,0)
   (1,0) to [R] (1,2)
-  (1,2) to [R] (1,4)
-  (1,4) to [short] (0,4);
-\end{circuitikz}
+  (1,2) to [R=$R_k$,v_>=$V_k$] (1,4)
+  (1,4) to [short, -o] (0,4);
+\ecz
+$V_k=V_s\left( \frac{R_k}{\sum\limits_i R_i} \right)$
 \subsection{Resistor Reduction}
-
+\subsubsection{Series}
+\bcz
+  \draw
+  (0,0) to [R,R=$R_1$] (2,0)
+  (2,0) to [R,R=$R_2$] (4,0);
+\ecz
+$=$
+\bcz
+  \draw
+  (0,0) to [R,R=$R_{eq}$] (2,0);
+\ecz
+$R_{eq}=R_1+R_2+\dots$
+\subsubsection{Parallel} 
 \subsection{Component Order}
 
 
