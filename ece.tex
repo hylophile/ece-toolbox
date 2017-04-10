@@ -1,5 +1,6 @@
 \documentclass[10pt,landscape]{article}
-\usepackage{circuitikz}
+\usepackage[american]{circuitikz}
+\usepackage{amsmath}
 \begin{document}
 \footnotesize
 % \begin{multicols}{3}
@@ -46,22 +47,64 @@ $I_k=I_s\left( \frac{\frac{1}{R_k}}{\sum\limits_i{\frac{1}{R_i}}} \right)$
 \ecz
 $V_k=V_s\left( \frac{R_k}{\sum\limits_i R_i} \right)$
 \subsection{Resistor Reduction}
-\subsubsection{Series}
+\paragraph{Series}
+%\begin{align} % tried aligning horizontally... nope not today
 \bcz
   \draw
   (0,0) to [R,R=$R_1$] (2,0)
   (2,0) to [R,R=$R_2$] (4,0);
+\ecz
+=
+\bcz
+  \draw
+  (0,0) to [R,R=$R_{eq}$] (2,0);
+\ecz
+$R_{eq}=R_1+R_2+\dots$
+%\end{align}
+\paragraph{Parallel} 
+\bcz % add symbols
+  \draw
+  (0,0) to [short] (4,0)
+  (4,0) to [R=$R_2$] (4,2)
+  (2,0) to [R=$R_1$] (2,2)
+  (4,2) to [short] (0,2);
 \ecz
 $=$
 \bcz
   \draw
   (0,0) to [R,R=$R_{eq}$] (2,0);
 \ecz
-$R_{eq}=R_1+R_2+\dots$
-\subsubsection{Parallel} 
+$R_{eq}=\left( \frac{1}{R_1}+\frac{1}{R_2}+\dots \right)^{-1}$
 \subsection{Component Order}
-
-
+\paragraph{Series}
+\bcz
+  \draw
+  (0,0) to [R] (2,0)
+  (2,0) to [V<=] (4,0); % minus is rotated ;/
+\ecz
+=
+\bcz
+  \draw
+  (0,0) to [V<=] (2,0) % same here
+  (2,0) to [R] (4,0);
+\ecz
+\paragraph{Parallel} 
+\bcz 
+  \draw
+  (0,0) to [short] (4,0)
+  (4,0) to [R] (4,2)
+  (2,2) to [I] (2,0)
+  (4,2) to [short] (0,2);
+\ecz
+$=$
+\bcz 
+  \draw
+  (0,0) to [short] (4,0)
+  (4,2) to [I] (4,0)
+  (2,2) to [R] (2,0)
+  (4,2) to [short] (0,2);
+\ecz
+% first page kinda done!
 
 
 % \newcommand{\mitem}[2]{#1 & #2 \\}
